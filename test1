@@ -1,0 +1,24 @@
+import xlrd
+
+#get array for unique words to find here
+n64location="C:\\Users\\maxtw\\PycharmProjects\\N64Shopper\\N64.xlsx"
+workbook=xlrd.open_workbook(n64location)
+sheet=workbook.sheet_by_name("Uniques")
+print(sheet)
+
+def open_file():
+    #this part of the code opens the spreadsheet. Should learn how this works
+    import os
+    from ctypes import c_int, WINFUNCTYPE, windll
+    from ctypes.wintypes import HWND, LPCSTR, UINT
+    prototype = WINFUNCTYPE(c_int, HWND, LPCSTR, LPCSTR, UINT)
+    paramflags = (1, "hwnd", 0), (1, "text", "Hi"), (1, "caption", None), (1, "flags", 0)
+    MessageBox = prototype(("MessageBoxA", windll.user32), paramflags)
+
+    filename = "C:\\Users\\maxtw\\PycharmProjects\\N64Shopper\\ShoppingList.xlsm"
+    os.startfile(filename, "edit")
+
+    try:
+        os.startfile(filename, "edit")
+    except WindowsError:
+        pass

@@ -1,0 +1,7 @@
+import xlrd
+
+#get array for unique words to find here
+n64location="C:\\Users\\maxtw\\PycharmProjects\\N64Shopper\\N64.xlsx"
+workbook=xlrd.open_workbook(n64location)
+sheet=workbook.sheet_by_name("Uniques")
+print(sheet)
