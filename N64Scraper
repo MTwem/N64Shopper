@@ -8,8 +8,8 @@ import xlrd
 #dynamic excel range
 
 
-maxprice=30
-special="@"
+maxprice=80
+#special="@"
 
 #SL= open('ShoppingList.txt','w')
 
@@ -19,7 +19,7 @@ uniquewords=set()
 n64location="C:\\Users\\maxtw\\PycharmProjects\\N64Shopper\\N64.xlsx"
 workbook=xlrd.open_workbook(n64location)
 sheet=workbook.sheet_by_name("Uniques")
-for j in range(270):
+for j in range(269):
     yae=sheet.cell_value(j,28)
     if yae is not 'y':
         word = sheet.cell_value(j, 27)
@@ -38,7 +38,7 @@ def urls(pgmax='2'):
         for i in n:
             title = i.find('h3', {'class': 's-item__title'}).text
             checker=str(title).lower()
-            exceptions={'instruction','booklet','magazine','manual'} #put words in here that you want to always exclude
+            exceptions={'instruction','booklet','magazine','manual','insert',' supercross','box'} #put words in here that you want to always exclude
             checkervariable = "yes"
             for j in exceptions:
                 if j in checker:
@@ -84,7 +84,7 @@ def urls(pgmax='2'):
 
 
 
-urls(5)
+urls(10) #max pages in here
 
 
 
